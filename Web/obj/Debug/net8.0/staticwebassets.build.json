@@ -1,0 +1,19 @@
+{
+  "Version": 1,
+  "Hash": "9QEkQARrWh1mwDYvTTZVjiqffzdqg3FoQeHhnC/jXYk=",
+  "Source": "Web",
+  "BasePath": "_content/Web",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [
+    {
+      "Name": "Web\\wwwroot",
+      "Source": "Web",
+      "ContentRoot": "C:\\Users\\user\\Desktop\\E-Learning Repo\\E-Learning\\Web\\wwwroot\\",
+      "BasePath": "_content/Web",
+      "Pattern": "**"
+    }
+  ],
+  "Assets": []
+}
