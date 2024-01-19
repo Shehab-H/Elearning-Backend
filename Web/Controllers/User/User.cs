@@ -2,7 +2,9 @@
 using MediatR;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Identity.Client;
 using System.Security.Claims;
+
 
 namespace Web.Controllers.User
 {
@@ -29,13 +31,8 @@ namespace Web.Controllers.User
             {
                 return Ok();
             }
-            foreach (var error in result.Errors)
-            {
-                ModelState.AddModelError("errors", error.Description);
-                ModelState.AddModelError("status", "400");
-                ModelState.AddModelError("title","user creation error");
-            }
-            return BadRequest(ModelState);
+
+            return BadRequest(result);
         }
     }
 }

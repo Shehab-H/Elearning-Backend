@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "7mT6OLpsRUYVsZ5fIGEDWZlQhLkF8YTujXJ4GvXHb0cpk6xdZKgqZNaSgutLMggNhfa3ZkS3UIX4Yl0ZgAmLkQ==",
+  "dgSpecHash": "GdqQWmiYxrbmxbBSQdeWT69elmmAgUANBTMdqfPdI2JJxDnzEpzS4r2xVvDn/MopPjvYCzDZpiJ7iKQ0KtmfTw==",
   "success": true,
   "projectFilePath": "C:\\Users\\user\\Desktop\\E-Learning Repo\\E-Learning\\Web\\Web.csproj",
   "expectedPackageFiles": [
@@ -75,7 +75,7 @@
     "C:\\Users\\user\\.nuget\\packages\\microsoft.sqlserver.server\\1.0.0\\microsoft.sqlserver.server.1.0.0.nupkg.sha512",
     "C:\\Users\\user\\.nuget\\packages\\microsoft.win32.systemevents\\6.0.0\\microsoft.win32.systemevents.6.0.0.nupkg.sha512",
     "C:\\Users\\user\\.nuget\\packages\\mono.texttemplating\\2.2.1\\mono.texttemplating.2.2.1.nupkg.sha512",
-    "C:\\Users\\user\\.nuget\\packages\\scrutor\\3.3.0\\scrutor.3.3.0.nupkg.sha512",
+    "C:\\Users\\user\\.nuget\\packages\\scrutor\\4.2.2\\scrutor.4.2.2.nupkg.sha512",
     "C:\\Users\\user\\.nuget\\packages\\swashbuckle.aspnetcore\\6.4.0\\swashbuckle.aspnetcore.6.4.0.nupkg.sha512",
     "C:\\Users\\user\\.nuget\\packages\\swashbuckle.aspnetcore.filters\\7.0.12\\swashbuckle.aspnetcore.filters.7.0.12.nupkg.sha512",
     "C:\\Users\\user\\.nuget\\packages\\swashbuckle.aspnetcore.filters.abstractions\\7.0.12\\swashbuckle.aspnetcore.filters.abstractions.7.0.12.nupkg.sha512",

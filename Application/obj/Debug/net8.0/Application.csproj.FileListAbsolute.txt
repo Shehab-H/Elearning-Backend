@@ -13,3 +13,4 @@ C:\Users\user\Desktop\E-Learning Repo\E-Learning\Application\obj\Debug\net8.0\Ap
 C:\Users\user\Desktop\E-Learning Repo\E-Learning\Application\bin\Debug\net8.0\Core.dll
 C:\Users\user\Desktop\E-Learning Repo\E-Learning\Application\bin\Debug\net8.0\Core.pdb
 C:\Users\user\Desktop\E-Learning Repo\E-Learning\Application\obj\Debug\net8.0\Application.csproj.CopyComplete
+C:\Users\user\Desktop\E-Learning Repo\E-Learning\Application\obj\Debug\net8.0\Application.sourcelink.json

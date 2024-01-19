@@ -162,3 +162,4 @@ C:\Users\user\Desktop\E-Learning Repo\E-Learning\Web\bin\Debug\net8.0\MediatR.dl
 C:\Users\user\Desktop\E-Learning Repo\E-Learning\Web\bin\Debug\net8.0\MediatR.Contracts.dll
 C:\Users\user\Desktop\E-Learning Repo\E-Learning\Web\bin\Debug\net8.0\Application.dll
 C:\Users\user\Desktop\E-Learning Repo\E-Learning\Web\bin\Debug\net8.0\Application.pdb
+C:\Users\user\Desktop\E-Learning Repo\E-Learning\Web\obj\Debug\net8.0\Web.sourcelink.json

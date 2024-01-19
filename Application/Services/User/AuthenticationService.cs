@@ -28,7 +28,6 @@ namespace Application.Services.User
             {
                 Email = request.Email,
                 UserName = request.UserName,
-                PhoneNumber = request.PhoneNumber,
             };
             user.PasswordHash = _passwordHasher.HashPassword(user, request.Password);
 

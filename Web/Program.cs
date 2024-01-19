@@ -13,6 +13,10 @@ using Application;
 using System.Security.Claims;
 using Application.Enums;
 using Microsoft.AspNetCore.Identity;
+using Web.Controllers.User;
+using Infrastructure;
+using Application.Intefaces.DataStores;
+using Infrastructure.Repositories;
 namespace Web
 {
     public class Program
@@ -41,6 +45,16 @@ namespace Web
                       options.UseSqlServer(
                       builder.Configuration.GetConnectionString("DefaultConnection")));
 
+            builder.Services.AddCors(options =>
+                     options.AddDefaultPolicy(builder =>
+                     builder.AllowAnyOrigin()
+                     .AllowAnyHeader()
+                     .AllowAnyMethod()));
+
+            builder.Services.RegisterRepositoriesFromAssembly(typeof(InfrastructureAssemblyReference).Assembly);
+
+            builder.Services.AddScoped<IUnitofWork, UnitOfWork>();
+
             builder.Services.AddAuthorization(options =>
             {
                 options.AddPolicy("TeachersOnly", policy =>
@@ -52,6 +66,9 @@ namespace Web
             });
 
             builder.Services.AddIdentityApiEndpoints<ElearningUser>(options =>
+            {
+                options.User.RequireUniqueEmail=true;
+            }
             )
                 .AddEntityFrameworkStores<AppDbContext>();
 
@@ -72,7 +89,7 @@ namespace Web
             app.UseHttpsRedirection();
             app.UseAuthorization();
 
-
+            app.UseCors();
             app.MapControllers();
 
             app.Run();

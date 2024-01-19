@@ -22,6 +22,63 @@ namespace Infrastructure.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
+            modelBuilder.Entity("Core.Entities.Course.Course", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Courses");
+                });
+
+            modelBuilder.Entity("Core.Entities.Course.CourseCategory", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<Guid?>("ParentCategoryId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ParentCategoryId");
+
+                    b.ToTable("Categories");
+                });
+
+            modelBuilder.Entity("Core.Entities.Course.CourseEnrollments", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid?>("CourseId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("EnrolledStudentId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<DateTime>("EnrollmentDate")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("CourseId");
+
+                    b.HasIndex("EnrolledStudentId");
+
+                    b.ToTable("Enrollments");
+                });
+
             modelBuilder.Entity("Core.Entities.User.ElearningUser", b =>
                 {
                     b.Property<string>("Id")
@@ -85,6 +142,21 @@ namespace Infrastructure.Migrations
                         .HasFilter("[NormalizedUserName] IS NOT NULL");
 
                     b.ToTable("AspNetUsers", (string)null);
+                });
+
+            modelBuilder.Entity("CourseCourseCategory", b =>
+                {
+                    b.Property<Guid>("CourseCategoriesId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("CourseId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.HasKey("CourseCategoriesId", "CourseId");
+
+                    b.HasIndex("CourseId");
+
+                    b.ToTable("CourseCourseCategory");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
@@ -220,6 +292,44 @@ namespace Infrastructure.Migrations
                     b.ToTable("AspNetUserTokens", (string)null);
                 });
 
+            modelBuilder.Entity("Core.Entities.Course.CourseCategory", b =>
+                {
+                    b.HasOne("Core.Entities.Course.CourseCategory", "ParentCategory")
+                        .WithMany()
+                        .HasForeignKey("ParentCategoryId")
+                        .OnDelete(DeleteBehavior.Restrict);
+
+                    b.Navigation("ParentCategory");
+                });
+
+            modelBuilder.Entity("Core.Entities.Course.CourseEnrollments", b =>
+                {
+                    b.HasOne("Core.Entities.Course.Course", null)
+                        .WithMany("CourseEnrollments")
+                        .HasForeignKey("CourseId");
+
+                    b.HasOne("Core.Entities.User.ElearningUser", "EnrolledStudent")
+                        .WithMany()
+                        .HasForeignKey("EnrolledStudentId");
+
+                    b.Navigation("EnrolledStudent");
+                });
+
+            modelBuilder.Entity("CourseCourseCategory", b =>
+                {
+                    b.HasOne("Core.Entities.Course.CourseCategory", null)
+                        .WithMany()
+                        .HasForeignKey("CourseCategoriesId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Core.Entities.Course.Course", null)
+                        .WithMany()
+                        .HasForeignKey("CourseId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
                 {
                     b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole", null)
@@ -269,6 +379,11 @@ namespace Infrastructure.Migrations
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+                });
+
+            modelBuilder.Entity("Core.Entities.Course.Course", b =>
+                {
+                    b.Navigation("CourseEnrollments");
                 });
 #pragma warning restore 612, 618
         }

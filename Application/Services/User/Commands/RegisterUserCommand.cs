@@ -15,16 +15,12 @@ namespace Application.Services.User.Commands
         [Required]
         [EnumDataType(typeof(UserType), ErrorMessage = "Invalid user type.")]
         public UserType UserType { get; set; }
-        [Required(ErrorMessage = "Username is required. ")]
+        [Required(ErrorMessage = "Username is required.")]
         public string UserName { get; set; }
 
         [Required(ErrorMessage = "Email is required.")]
         [EmailAddress(ErrorMessage = "Invalid email format.")]
         public string Email { get; set; }
-
-        [Required(ErrorMessage ="Phonenumber is required.")]
-
-        public string PhoneNumber { get; set; }
         [Required(ErrorMessage = "Password is required.")]
         public string Password { get; set; }
 
