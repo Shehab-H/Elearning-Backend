@@ -13,6 +13,7 @@ namespace Core.Entities.Course
 
         public CourseCategory ParentCategory { get; private set; }
 
+
         private CourseCategory() : base(Guid.NewGuid())
         { }
         public CourseCategory(string name, CourseCategory  parentCategory) : base(Guid.NewGuid())

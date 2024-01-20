@@ -13,6 +13,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="Services\Course\Commands\" />
     <Folder Include="Services\User\Queries\" />
   </ItemGroup>
 
